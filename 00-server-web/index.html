@@ -4,14 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        /*Esto es CSS*/
+        #titulo-muy-especial {
+            margin: 1px;
+            margin-top: 2px;
+            margin-bottom: 3px;
+            margin-right: 5px;
+            margin: 10px 20px 30px 40px;
+            margin-left: 1px;
+            margin-left: 1000px;
+            margin-left: 5px;
+        }
+
+        /*
+        Selector por nombre de etiqueta
+        -Se puede cominar tambien los selectores por nombre de etiqueta con los selectores por id o clase
+        */
+
+        h1, h2 {
+
+            margin: 5px;
+            padding: 10px 20px 30px 40px;
+            margin-top: 1px;
+            margin-right: 2px;
+            margin-bottom: 3px;
+            margin-left: 4px;
+            padding: 15px;
+            border: green 1px solid;
+            border-color: green;
+            border-width: 14px;
+            border-style: dashed;
+            /*top rigth bottom left*/
+        }
+
+        /*Selectores por clase*/
+        .lista-ordenada-mayusculas{
+
+            list-style-type: upper-alpha;
+        }
+
+        .lista-ordenada-romanas{
+           list-style-type: upper-roman;
+        }
+
+        /*
+        Selector por relacion de etiquetas
+        li tiene un hijo de tipo a
+
+
+        */
+
+        li> a {
+            background-color: orange;
+        }
+
+        /*
+        Seudo clase - Ul TIENE HIJO Li
+        hover cuando pasa el moise
+        */
+
+        ul li:hover {
+            background-color: brown;
+        }
+
+        ul li:first-child {
+            background-color: red;
+        }
+
+        ul li:nth-child(4) {
+            background-color: blue;
+        }
+
+        
+
+    </style>
 </head>
 <body>
-    <h1>Hola Mundo! </h1>
-    <h2>Hola Mundo! </h2>
-    <h3>Hola Mundo! </h3>
+    <h1 id="titulo-muy-especial" 
+    style=" color: white; background-color:black ;">
+        Hola Mundo! </h1>
+        <h2>Hola Mundo! </h2>
+        <h3>Hola Mundo! </h3>
     <h4>Hola Mundo! </h4>
     <h5 style="color: aqua;">Hola Mundo! </h5>
     <h6 style="font-size: 40px">Hola Mundo! </h6>
+
+    <p>My first paragrph</p>
+
+    <a href="www.google.com" target="_blank">Google</a>
+    <ul>
+        <li><a href="/index.html">
+            Home
+        </a>
+        </li>
+        <li><a href="/a-tablas-anclas.html">
+            Tablas y Anclas
+        </a>
+
+        </li>
+    </ul>
+
+    <ol class="lista-ordenada-mayusculas">
+        <li>Lunes
+            <ol class="lista-ordenada-romanas">
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ol>
+        </li>
+        <li>Martes</li>
+        <li>Miercoles</li>
+    </ol>
+
+    <p>Links internos</p>
+
+    <ul>
+        <li><a href="#parrafo1">Ir parrafo 1</a></li>
+        <li><a href="#parrafo2">Ir parrafo 2</a></li>
+    </ul>
+
+    <p id="parrafo1">Parrafo 1</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p id="parrafo2">Parrafo 2</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h2>Imagenes</h2>
+
+    <img src="https://r-charts.com/es/miscelanea/procesamiento-imagenes-magick_files/figure-html/recortar-bordes-imagen-r.png" alt="Ave">
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nota</th>
+        </tr>
+
+        <tr>
+            <th>Kevin</th>
+            <th>Villacis</th>
+            <th>10</th>
+        </tr>
+
+        <tr>
+            <th>Jimmy</th>
+            <th>Arias</th>
+            <th>8</th>
+        </tr>
+    </table>
 
 </body>
 </html>
