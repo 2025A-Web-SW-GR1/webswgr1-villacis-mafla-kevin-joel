@@ -1,0 +1,23 @@
+.container{
+    max-width: 100%;
+}
+
+.text-bg-primary {
+    background-color: white !important; /* Cambia el color a dorado */
+    color: black !important; /* Cambia el color del texto*/
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+.text-bg-success {
+    background-color: #ffcc00 !important; /* Cambia el color a dorado */
+    color: black !important; /* Cambia el color del texto*/
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+
+
