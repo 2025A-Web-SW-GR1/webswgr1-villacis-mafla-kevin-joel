@@ -6,8 +6,8 @@ export class CrearEditarBaseDto{
 
     @IsInt()
     @Min(0)
-    valor: string;
+    valor: number;
 
     @IsUrl()
     imagenUrl: string;
-} 
+}

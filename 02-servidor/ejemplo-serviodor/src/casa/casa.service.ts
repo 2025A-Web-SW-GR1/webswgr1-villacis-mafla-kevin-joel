@@ -15,5 +15,15 @@ export class CasaService {
     ){
         return this.photoRepository.find(options);
     }
+
+   crearUno(nombre: string, valor:number, imagenUrl: string){
+        const nuevaInstancia = this.photoRepository.create();
+        nuevaInstancia.nombre = nombre;
+        nuevaInstancia.valor = valor;
+        nuevaInstancia.imagenURL = imagenUrl;
+        return this.photoRepository.save(nuevaInstancia);
+    }
+
+
 }
  
