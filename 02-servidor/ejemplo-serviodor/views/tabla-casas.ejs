@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Examen - Tabla de Casas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        .imagen-casa {
+            max-width: 100px;
+            max-height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Examen - Lista de Casas</h1>
+        
+        <% if (usuario?.username) { %>
+            <div class="alert alert-info">
+                <strong>Usuario autenticado:</strong> <%= usuario.username %>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Tabla de Casas</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th>Nombre</th>
+                                    <th class="text-center">Valor</th>
+                                    <th class="text-center">Imagen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (casas && casas.length > 0) { %>
+                                    <% casas.forEach(function(casa) { %>
+                                        <tr>
+                                            <td class="text-center align-middle">
+                                                <span class="badge bg-secondary fs-6"><%= casa.id %></span>
+                                            </td>
+                                            <td class="align-middle">
+                                                <strong><%= casa.nombre %></strong>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <span class="badge bg-success fs-6">$<%= casa.valor %></span>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <% if (casa.imagenURL) { %>
+                                                    <img src="<%= casa.imagenURL %>" 
+                                                         alt="<%= casa.nombre %>" 
+                                                         class="imagen-casa"
+                                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                                    <div style="display:none;" class="text-muted">
+                                                        <small>Imagen no disponible</small>
+                                                    </div>
+                                                <% } else { %>
+                                                    <span class="text-muted">
+                                                        <i>Sin imagen</i>
+                                                    </span>
+                                                <% } %>
+                                            </td>
+                                        </tr>
+                                    <% }); %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="4" class="text-center text-muted py-4">
+                                            <h5>No hay casas disponibles en la base de datos</h5>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <a href="/auth/sesion" class="btn btn-outline-primary me-2">Volver a Sesión</a>
+                <a href="/auth/logout" class="btn btn-danger">Cerrar Sesión</a>
+            </div>
+
+        <% } else { %>
+            <div class="alert alert-warning text-center">
+                <h2>⚠️ Acceso Denegado</h2>
+                <p>Debe iniciar sesión para ver la tabla de casas</p>
+                <a href="/auth/login-vista" class="btn btn-primary">Iniciar Sesión</a>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

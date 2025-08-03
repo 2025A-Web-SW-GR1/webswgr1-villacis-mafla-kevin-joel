@@ -67,16 +67,46 @@ export class AuthController {
     @Res() res: any,
     @Session() session: Record<string, any>
   ) { // Using @Session() decorator
-    let casa: any = {};
+    let usuario: any = {};
+    let casas: any[] = [];
+    
     if (session?.user?.username) {
       try {
-        casa = await this.casaService.buscarUnoPorUsername(session.user.username);
+        usuario = await this.casaService.buscarUnoPorUsername(session.user.username);
+        // Obtener todas las casas para mostrar en la tabla
+        casas = await this.casaService.obtenerTodos();
       } catch (e) {
-        console.error('No se encontro usuario');
+        console.error('Error al obtener datos:', e);
       }
     }
+    
     res.render('sesion', {
-      casa,
+      usuario,
+      casas,
+    });
+  }
+
+  @Get('tabla-casas')
+  async tablaCasas(
+    @Res() res: any,
+    @Session() session: Record<string, any>
+  ) {
+    let usuario: any = {};
+    let casas: any[] = [];
+    
+    if (session?.user?.username) {
+      try {
+        usuario = await this.casaService.buscarUnoPorUsername(session.user.username);
+        // Obtener todas las casas para la tabla del examen
+        casas = await this.casaService.obtenerTodos();
+      } catch (e) {
+        console.error('Error al obtener datos:', e);
+      }
+    }
+    
+    res.render('tabla-casas', {
+      usuario,
+      casas,
     });
   }
 }
